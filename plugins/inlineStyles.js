@@ -21,8 +21,8 @@ export const description = 'inline styles (additional options)';
  * :future, or :hover, but there are other pseudo-classes that we can evaluate
  * during optimization.
  *
- * The list of pseudo-classes that we can evaluate during optimization, and
- * shouldn't be toggled conditionally through the `usePseudos` parameter.
+ * Pseudo-classes that we can evaluate during optimization, and shouldn't be
+ * toggled conditionally through the `usePseudos` parameter.
  *
  * @see https://developer.mozilla.org/docs/Web/CSS/Pseudo-classes
  */
@@ -78,7 +78,7 @@ export const fn = (root, params) => {
 
         const cssText = node.children
           .filter((child) => child.type === 'text' || child.type === 'cdata')
-          // @ts-ignore
+          // @ts-expect-error
           .map((child) => child.value)
           .join('');
 
